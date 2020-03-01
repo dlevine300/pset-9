@@ -1,69 +1,99 @@
+
 <!DOCTYPE html>
 
+
+
 <html lang="en">
+
   <head>
+
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+
+
     <link href="https://fonts.googleapis.com/css?family=Major+Mono+Display" rel="stylesheet" />
+
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
+
     <script defer src="js/app.js"></script>
 
-    <title>sites.google.com/site/unblockgames/tic-tac-toe</title>
+
+
+    <title>Tic-Tac-Toe</title>
+
   </head>
+
   <body>
-      <h1>Tic | Tac | Toe</h1>
-    <center><ul></center>
+
+    <h1>TIC | TAC | TOE</h1>
       <center><li id="Home Page"><a href="index.html">Home Page</a></li></center>
       <center><li id="TIC_TAC_TOE"><a href="tictactoe.html">TIC | TAC | TOE</a></li></center>
       <center><li id="game_of_choice_1"><a href="gameofchoice1.html">Brick Breaker</a></li></center>
       <center><li id="game_of_choice_2"><a href="gameofchoice2.html">Ultimate TIC_TAC_TOE</a></li></center>
-     </<ul>
-      <h3>
-        X or O First?
-      </h3>
 
-      <div id="change-order-button">
-        X or O
+      <h2>Turn: X</h2>
+
+      <table id = "table">
+
+      <tr>
+
+        <th class = "wins">X Wins</th>
+
+        <th class = "wins"># of ties</th>
+
+        <th class = "wins">O Wins</th>
+
+      </tr>
+
+      <tr>
+
+        <td id="x_score">0</td>
+
+        <td id="tie_score">0</td>
+
+        <td id="o_score">0</td>
+
+      </tr>
+
+    </table>
+
+    <br></b>
+
+    <div class="container column">
+
+      <div class="container wrap" id="board">
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
+        <div class="square"></div>
+
       </div>
-      <h3 id="h3">
-        FLEX SEAL
-      </h3>
-      <div class="idk">
-        <img src="images/tic-tac-toe/flexseal.gif">
-      </div>
-      <table class="number-of-wins">
-          <tr>
-              <th># of X Wins</th>
-              <th># of O Wins</th>
-              <th># of Ties</th>
-          </tr>
-          <tr>
-              <td id="x-wins">0</td>
-              <td id="o-wins">0</td>
-              <td id="ties">0</td>
-          </tr>
-      </table>
 
-      <div id="reset-score-button">Reset Score</div>
+    <div id="reset-scoreboard">Reset Scoreboard</div>
 
-      <div class="container column">
-          <h2>Turn: X</h2>
+    <div id="reset-button">Play Again!</div>
 
-          <div class="container wrap" id="board">
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-              <div class="square"></div>
-          </div>
 
-          <div id="reset-button">Play Again!</div>
-      </div>
+    </div>
+
   </body>
+
 </html>
