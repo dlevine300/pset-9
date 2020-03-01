@@ -1,13 +1,13 @@
 ///////////////////// CONSTANTS /////////////////////////////////////
 const winningConditions = [
-  [0, 1, 2],
-  [3, 4, 5],
-  [6, 7, 8],
-  [0, 3, 6],
-  [1, 4, 7],
-  [2, 5, 8],
-  [0, 4, 8],
-  [2, 4, 6]
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
 ];
 
 ///////////////////// APP STATE (VARIABLES) /////////////////////////
@@ -22,7 +22,8 @@ let starter = "X";
 ///////////////////// CACHED ELEMENT REFERENCES /////////////////////
 const squares = Array.from(document.querySelectorAll("#board div"));
 const message = document.querySelector("h2");   // grab the subheader
-const victoryAudio = document.getElementById("victory-audio");
+const victoryAudio = document.getElementById("victory-audio");   // grab the victory audio
+const tieAudio = document.getElementById("tie-audio");   // grab the tie audio
 
 ///////////////////// EVENT LISTENERS ///////////////////////////////
 window.onload = init;
@@ -32,6 +33,8 @@ document.getElementById("change-order-button").onclick = changeOrder;
 document.getElementById("reset-score-button").onclick = resetScore;
 
 ///////////////////// FUNCTIONS /////////////////////////////////////
+
+// Starts new game
 function init() {
     board = [
         "", "", "",
@@ -39,7 +42,7 @@ function init() {
         "", "", ""
     ];
 
-    turn = "X";
+    turn = starter;
     win = null;
 
     render();
@@ -47,6 +50,7 @@ function init() {
     victoryAudio.currentTime = 0;
 }
 
+// Renders board
 function render() {
     board.forEach(function(mark, index) {
         squares[index].textContent = mark;
@@ -55,6 +59,7 @@ function render() {
     message.textContent = win === "T" ? "It's a tie!" : win ? `${win} wins!` : `Turn: ${turn}`;
 }
 
+// Runs after each turn
 function takeTurn(e) {
     if (!win) {
         let index = squares.findIndex(function(square) {
@@ -78,6 +83,7 @@ function takeTurn(e) {
         else if (win === "T") {
             ties++;
             document.getElementById("ties").innerHTML = ties;
+            tieAudio.play();
         }
 
         render();
@@ -85,6 +91,7 @@ function takeTurn(e) {
     }
 }
 
+// Checks if player has won
 function getWinner() {
     let winner = null;
 
@@ -101,20 +108,20 @@ function getWinner() {
     return winner ? winner : board.includes("") ? null : "T";
 }
 
+// Changes who goes first
 function changeOrder() {
-    init();
     if (starter === "X") {
-        turn = "O";
         starter = "O";
     }
     else {
-        turn = "O";
         starter = "X"
     }
-    document.getElementById("change-order-button").innerHTML = turn;
+    document.getElementById("change-order-button").innerHTML = starter;
+    init();
     render();
 }
 
+// Resets scoreboard
 function resetScore() {
     xWins = 0;
     oWins = 0;
