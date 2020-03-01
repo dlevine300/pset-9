@@ -62,7 +62,6 @@ th, td {
 }
 
 .square:hover {
-  background-image: url("../images/tic-tac-toe/flexseal.webp");
   background-size: cover;
   cursor: pointer;
 }
@@ -74,10 +73,9 @@ th, td {
 }
 
 #reset-button {
-  background-image: url("../images/tic-tac-toe/flexboat.jpg");
   background-size: cover;
   border: 3px solid black;
-  color: Red;
+  color: black;
   font-size: 40px;
   line-height: 500px;
   margin: 1%;
